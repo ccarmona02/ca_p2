@@ -1,8 +1,5 @@
 .idea
 *.xml
 *.iml
-cmake-build-debug-wsl
-cmake-build-release-wsl
-cmake-build-debug
-cmake-build-release
+cmake-build-*
 *.Identifier
