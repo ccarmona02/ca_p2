@@ -83,24 +83,28 @@ namespace images::aos {
   void bitmap_aos::gauss() noexcept {
     bitmap_aos result{*this};
     const auto num_pixels = std::ssize(pixels);
-    const auto [pixels_width, pixels_height] = get_size();
-    for (int pixel_index = 0; pixel_index < num_pixels; ++pixel_index) {
-      const auto [row, column] = get_pixel_position(pixel_index);
-      color_accumulator accum;
-      for (int gauss_index = 0; gauss_index < gauss_size; ++gauss_index) {
-        const int column_offset = (gauss_index % 5) - 2;
-        const int j = column + column_offset;
-        if (j < 0 || j >= pixels_width) { continue; }
-        const int row_offset = (gauss_index / 5) - 2;
-        const int i = row + row_offset;
-        if (i < 0 || i >= pixels_height) { continue; }
-        // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-constant-array-index)
-        const int gauss_value = gauss_kernel[gauss_index];
-        const auto gauss_pixel_index = index(i, j);
-        accum += pixels[gauss_pixel_index] * gauss_value;
-      }
-      result.pixels[pixel_index] = accum / gauss_norm;
-    }
+#pragma omp parallel default(none) firstprivate(num_pixels, result, gauss_kernel)
+      {
+          const auto [pixels_width, pixels_height] = get_size();
+#pragma omp for
+          for (int pixel_index = 0; pixel_index < num_pixels; ++pixel_index) {
+              const auto [row, column] = get_pixel_position(pixel_index);
+              color_accumulator accum;
+              for (int gauss_index = 0; gauss_index < gauss_size; ++gauss_index) {
+                  const int column_offset = (gauss_index % 5) - 2;
+                  const int j = column + column_offset;
+                  if (j < 0 || j >= pixels_width) { continue; }
+                  const int row_offset = (gauss_index / 5) - 2;
+                  const int i = row + row_offset;
+                  if (i < 0 || i >= pixels_height) { continue; }
+                  // NOLINTNEXTLINE(cppcoreguidelines-pro-bounds-constant-array-index)
+                  const int gauss_value = gauss_kernel[gauss_index];
+                  const auto gauss_pixel_index = index(i, j);
+                  accum += pixels[gauss_pixel_index] * gauss_value;
+              }
+              result.pixels[pixel_index] = accum / gauss_norm;
+          }
+      };
     *this = result;
   }
 
