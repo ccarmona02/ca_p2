@@ -92,12 +92,14 @@ namespace images::soa {
     }
 
     void bitmap_soa::gauss() noexcept {
+        using clk = std::chrono::high_resolution_clock;
+        auto t1 = clk::now();
         bitmap_soa result{*this};
         const auto num_pixels = std::ssize(pixels[red_channel]);
 #pragma omp parallel default(none) firstprivate(num_pixels, result, gauss_kernel)
         {
             const auto [pixels_width, pixels_height] = get_size();
-#pragma omp for schedule(static)
+#pragma omp for
             for (int pixel_index = 0; pixel_index < num_pixels; ++pixel_index) {
                 const auto [row, column] = get_pixel_position(pixel_index);
                 color_accumulator accum;
@@ -117,6 +119,9 @@ namespace images::soa {
             }
         };
         *this = result;
+        auto t2 = clk::now();
+        auto diff = duration_cast<std::chrono::microseconds>(t2 - t1);
+        std::cout << "Time= " << diff.count() << " microseconds\n";
     }
 
     histogram bitmap_soa::generate_histogram() const noexcept {
