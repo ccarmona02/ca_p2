@@ -1,0 +1,185 @@
+--- SEQUENTIAL ---
+aos
+Input path: "in"
+Output path: "out"
+File: in/sabatini.bmp
+File: in/sabatini.bmp time(1872161)
+  Load time: 121860
+  Process time: 644792
+  Store time: 1750300
+
+ Performance counter stats for 'system wide':
+
+              3,95 Joules power/energy-cores/                                         
+              0,00 Joules power/energy-gpu/                                           
+             11,56 Joules power/energy-pkg/                                           
+              4,10 Joules power/energy-ram/                                           
+
+       1,882103297 seconds time elapsed
+
+soa
+Input path: "in"
+Output path: "out"
+File: in/sabatini.bmp
+File: in/sabatini.bmp time(2315766)
+  Load time: 484344
+  Process time: 631450
+  Store time: 1831421
+
+ Performance counter stats for 'system wide':
+
+              5,78 Joules power/energy-cores/                                         
+              0,00 Joules power/energy-gpu/                                           
+             15,57 Joules power/energy-pkg/                                           
+              5,15 Joules power/energy-ram/                                           
+
+       2,326272847 seconds time elapsed
+
+--- 2-THREAD ---
+aos
+Input path: "in"
+Output path: "out"
+File: in/sabatini.bmp
+File: in/sabatini.bmp time(1871103)
+  Load time: 128066
+  Process time: 325562
+  Store time: 1743037
+
+ Performance counter stats for 'system wide':
+
+              4,07 Joules power/energy-cores/                                         
+              0,00 Joules power/energy-gpu/                                           
+             11,46 Joules power/energy-pkg/                                           
+              4,03 Joules power/energy-ram/                                           
+
+       1,944059092 seconds time elapsed
+
+soa
+Input path: "in"
+Output path: "out"
+File: in/sabatini.bmp
+File: in/sabatini.bmp time(1991426)
+  Load time: 484338
+  Process time: 318905
+  Store time: 1507088
+
+ Performance counter stats for 'system wide':
+
+              5,89 Joules power/energy-cores/                                         
+              0,00 Joules power/energy-gpu/                                           
+             14,90 Joules power/energy-pkg/                                           
+              4,50 Joules power/energy-ram/                                           
+
+       1,998962545 seconds time elapsed
+
+--- 4-THREAD ---
+aos
+Input path: "in"
+Output path: "out"
+File: in/sabatini.bmp
+File: in/sabatini.bmp time(1456450)
+  Load time: 127170
+  Process time: 172373
+  Store time: 1329280
+
+ Performance counter stats for 'system wide':
+
+              3,71 Joules power/energy-cores/                                         
+              0,00 Joules power/energy-gpu/                                           
+              9,77 Joules power/energy-pkg/                                           
+              3,24 Joules power/energy-ram/                                           
+
+       1,462965099 seconds time elapsed
+
+soa
+Input path: "in"
+Output path: "out"
+File: in/sabatini.bmp
+File: in/sabatini.bmp time(1857628)
+  Load time: 476054
+  Process time: 168677
+  Store time: 1381574
+
+ Performance counter stats for 'system wide':
+
+              5,60 Joules power/energy-cores/                                         
+              0,00 Joules power/energy-gpu/                                           
+             13,61 Joules power/energy-pkg/                                           
+              4,25 Joules power/energy-ram/                                           
+
+       1,864980910 seconds time elapsed
+
+--- 8-THREAD ---
+aos
+Input path: "in"
+Output path: "out"
+File: in/sabatini.bmp
+File: in/sabatini.bmp time(1443930)
+  Load time: 119897
+  Process time: 172225
+  Store time: 1324032
+
+ Performance counter stats for 'system wide':
+
+              3,71 Joules power/energy-cores/                                         
+              0,00 Joules power/energy-gpu/                                           
+              9,68 Joules power/energy-pkg/                                           
+              3,34 Joules power/energy-ram/                                           
+
+       1,449808696 seconds time elapsed
+
+soa
+Input path: "in"
+Output path: "out"
+File: in/sabatini.bmp
+File: in/sabatini.bmp time(1902466)
+  Load time: 475601
+  Process time: 168795
+  Store time: 1426864
+
+ Performance counter stats for 'system wide':
+
+              5,59 Joules power/energy-cores/                                         
+              0,00 Joules power/energy-gpu/                                           
+             13,82 Joules power/energy-pkg/                                           
+              4,40 Joules power/energy-ram/                                           
+
+       1,908978177 seconds time elapsed
+
+--- 16-THREAD ---
+aos
+Input path: "in"
+Output path: "out"
+File: in/sabatini.bmp
+File: in/sabatini.bmp time(1449961)
+  Load time: 119465
+  Process time: 173694
+  Store time: 1330496
+
+ Performance counter stats for 'system wide':
+
+              3,73 Joules power/energy-cores/                                         
+              0,00 Joules power/energy-gpu/                                           
+              9,16 Joules power/energy-pkg/                                           
+              3,06 Joules power/energy-ram/                                           
+
+       1,455433062 seconds time elapsed
+
+soa
+Input path: "in"
+Output path: "out"
+File: in/sabatini.bmp
+File: in/sabatini.bmp time(1871055)
+  Load time: 479503
+  Process time: 173908
+  Store time: 1391552
+
+ Performance counter stats for 'system wide':
+
+              5,65 Joules power/energy-cores/                                         
+              0,00 Joules power/energy-gpu/                                           
+             13,27 Joules power/energy-pkg/                                           
+              4,06 Joules power/energy-ram/                                           
+
+       1,878587340 seconds time elapsed
+
