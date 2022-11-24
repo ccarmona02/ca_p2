@@ -86,7 +86,7 @@ namespace images::aos {
         auto t1 = clk::now();
         bitmap_aos result{*this};
         const auto num_pixels = std::ssize(pixels);
-#pragma omp parallel default(none) firstprivate(num_pixels, result, gauss_kernel)
+#pragma omp parallel default(none) shared(num_pixels, result, gauss_kernel)
         {
             const auto [pixels_width, pixels_height] = get_size();
 #pragma omp for
