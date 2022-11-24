@@ -92,8 +92,6 @@ namespace images::soa {
     }
 
     void bitmap_soa::gauss() noexcept {
-        using clk = std::chrono::high_resolution_clock;
-        auto t1 = clk::now();
         bitmap_soa result{*this};
         const auto num_pixels = std::ssize(pixels[red_channel]);
 #pragma omp parallel default(none) shared(num_pixels, result, gauss_kernel)
@@ -119,9 +117,6 @@ namespace images::soa {
             }
         };
         *this = result;
-        auto t2 = clk::now();
-        auto diff = duration_cast<std::chrono::microseconds>(t2 - t1);
-        std::cout << "Time= " << diff.count() << " microseconds\n";
     }
 
     histogram bitmap_soa::generate_histogram() const noexcept {
