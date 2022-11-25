@@ -35,6 +35,9 @@ namespace images::common {
 
     void write(std::ostream & os) const noexcept;
 
+    void merge_histos(std::vector<histogram>h, int nthreads);
+
+
   private:
     static constexpr int num_levels = 256;
     std::array<std::vector<int>, 3> channels = {std::vector<int>(num_levels),

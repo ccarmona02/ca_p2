@@ -6,6 +6,7 @@
 #include "common/bitmap_header.hpp"
 #include "common/pixel.hpp"
 #include "common/histogram.hpp"
+#include <omp.h>
 
 namespace images::soa {
 
